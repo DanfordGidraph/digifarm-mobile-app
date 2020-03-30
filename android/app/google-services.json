@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1003080305083",
+    "firebase_url": "https://digifarm-mobile-dev.firebaseio.com",
+    "project_id": "digifarm-mobile-dev",
+    "storage_bucket": "digifarm-mobile-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1003080305083:android:583757967c152cda0f9c9e",
+        "android_client_info": {
+          "package_name": "com.safaricom.android.digifarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1003080305083-88r8jt7kf50hcecst43rnbo6s4obk5b9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.safaricom.android.digifarm",
+            "certificate_hash": "cee0fff544ab6a7ce9d879ba7733978573e16eba"
+          }
+        },
+        {
+          "client_id": "1003080305083-9lg61s51ridi9bop6nde9j0ugbu5fc1u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdp7oHOJnzYrkvhXKiAiDKMZZ7BxL5kYA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1003080305083-9lg61s51ridi9bop6nde9j0ugbu5fc1u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
