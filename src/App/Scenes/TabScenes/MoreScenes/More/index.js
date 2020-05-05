@@ -15,7 +15,7 @@ import { Colors } from '@common'
 import { NotificationBell } from '@components'
 import styles from './styles'
 
-class Support extends React.Component {
+class More extends React.Component {
   state = {
     modal_shown: false,
     showAlert: false,
@@ -25,9 +25,7 @@ class Support extends React.Component {
   }
 
   render = () => {
-    const { lockStatus } = this.props
     const { modal_shown, showAlert, alert } = this.state
-    const locked = (lockStatus && /\block\b/gi.test(lockStatus?.lock_status)) || false
 
     return (
         <Container style={styles().container}>
@@ -53,7 +51,7 @@ class Support extends React.Component {
               </View>
 
               {/* Social Media Actions Card */}
-              {!locked && <View style={styles().view_sm_actions} >
+              <View style={styles().view_sm_actions} >
                 <View style={styles().view_sm_action}>
                   <Button onPress={this.openFacebookSupport} block transparent icon style={styles().btn_sm_actions}>
                     <Icon style={styles().icon_facebook} name='facebook' type='MaterialCommunityIcons'/>
@@ -78,15 +76,15 @@ class Support extends React.Component {
                   </Button>
                   <Text style={styles().txt_sm_action}>Chat</Text>
                 </View>
-              </View>}
+              </View>
 
               {/* Call Support */}
-              {locked && <View style={styles().view_call_support}>
+              <View style={styles().view_call_support}>
                 <Button rounded transparent iconLeft style={styles().btn_call_support} onPress={this.showModal} >
                   <Icon style={styles().icon_call_support} name='phone-in-talk' type='MaterialCommunityIcons'/>
                   <Text style={styles().txt_call_support}>   Talk to Customer Care</Text>
                 </Button>
-              </View>}
+              </View>
             </Content>
 
             <Overlay
@@ -159,12 +157,7 @@ class Support extends React.Component {
     navigation.setOptions({ headerRight: () => (<NotificationBell count={unread_notifications_count} navigation={navigation} />) })
   }
 
-  handleZuri = () => {
-    const { lockStatus } = this.props
-    const locked = (lockStatus && /\block\b/gi.test(lockStatus?.lock_status)) || false
-    if (locked) this.showAlert('Access Denied!', 'Dear Customer, Access to Zuri on WhatsApp is only available on an UNLOCKED Device. Please make our payments to get your device unlocked first.', 'OK I Will', false, () => null)
-    else Linking.openURL('https://wa.me/254722000100?text=Hello%20Zuri')
-  }
+  handleZuri = () => Linking.openURL('https://wa.me/254722000100?text=Hello%20Zuri')
 
   showFAQs = () => Linking.openURL('https://safaricom.co.ke/faqs')
 
@@ -198,4 +191,4 @@ const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators(ActionCreators, dispatch),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(Support)
+export default connect(mapStateToProps, mapDispatchToProps)(More)
