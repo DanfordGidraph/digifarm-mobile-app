@@ -91,6 +91,7 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.+' // Native Gif support
+    implementation 'com.facebook.fresco:animated-gif:2.0.0' //React side Gif support
 
     // Analytics
     implementation 'com.google.firebase:firebase-analytics:17.2.3'
