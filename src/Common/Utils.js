@@ -22,6 +22,12 @@ export const reverseStepper = (str) => weakStepperReverser(str)
 
 export const titleCase = (str) => str.toLowerCase()?.split(' ')?.reduce((accumulator, current) => `${accumulator}${current.charAt(0)?.toUpperCase()}${current.slice(1)} `, '')
 
+export const validateKenyanPhoneNumber = (phoneNumber) => phoneNumber && /^(?:254|\+254|0)?((7|1)?(?:(?:[129][0-9])|(?:0[0-8])|(4[0-1]))[0-9]{6})$/.test(phoneNumber)
+
+export const validateEmailAddress = (email) => email && /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)
+
+export const validatePasswordStrength = (pass) => pass && /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/.test(pass)
+
 export const formatMoney = (amount) => {
   const decimalCount = 0
   const decimal = '.'
