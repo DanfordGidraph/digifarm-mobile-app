@@ -9,32 +9,38 @@ import {
 import { Icon } from 'native-base'
 import * as Services from '@services'
 
+// Header
+import NavigationHeader from '../Components/NavigationHeader'
+
 // Intro
-import Splash from '../Scenes/Splash'
+import Splash from '../Scenes/IntroScenes/Splash'
 
 // Tabs: Home
-import Home from '../Scenes/Home'
+import Home from '../Scenes/TabScenes/HomeScenes/Home'
 
 // Tabs: Account
-import Account from '../Scenes/Account'
+import Account from '../Scenes/TabScenes/AuthScenes/Account'
+import SignIn from '../Scenes/TabScenes/AuthScenes/SignIn'
+import SignupOrgDetails from '../Scenes/TabScenes/AuthScenes/SignupOrgDetails'
+import SignupOrgDocs from '../Scenes/TabScenes/AuthScenes/SignupOrgDocs'
+import SignupOrgContact from '../Scenes/TabScenes/AuthScenes/SignupOrgContact'
 
 // Tabs: Categories
-import Categories from '../Scenes/Categories'
+import Categories from '../Scenes/TabScenes/CategoryScenes/Categories'
 
 // Tabs: Cart
-import Cart from '../Scenes/Cart'
+import Cart from '../Scenes/TabScenes/CartScenes/Cart'
 
-// Tabs: Support
-import Support from '../Scenes/Support'
+// Tabs: More
+import More from '../Scenes/TabScenes/MoreScenes/More'
 
-const { width, height } = Constants
 
 const tabsScreensOptions = {
   headerShown: true,
-  headerStyle: { backgroundColor: Colors.White, elevation: 2 },
-  headerLeft: () => (<Image style={{}} source={Images.AppLogo} style={{ width: width * 0.4, height: height * 0.04 }} resizeMode='contain' />),
   headerTintColor: Colors.White,
 }
+
+const setScreenOptions = (route, title) => ({ title: title || route?.name, header: ({ scene, previous, navigation }) => <NavigationHeader route={route} scene={scene} previous={previous} navigation={navigation} /> })
 
 const Stack = createStackNavigator()
 const BottomTabs = createBottomTabNavigator()
@@ -47,31 +53,35 @@ const IntroStack = () => (
 
 const HomeTabStack = () => (
   <Stack.Navigator screenOptions={tabsScreensOptions}>
-    <Stack.Screen component={Home} name='Home' options={{ title: '' }} />
+    <Stack.Screen component={Home} name='Home' options={({ route }) => setScreenOptions(route, '') } />
   </Stack.Navigator>
 )
 
 const AccountTabStack = () => (
   <Stack.Navigator screenOptions={tabsScreensOptions}>
-    <Stack.Screen component={Account} name='Account' options={{ title: '' }} />
+    <Stack.Screen component={Account} name='Account' options={({ route }) => setScreenOptions(route, 'My Account') } />
+    <Stack.Screen component={SignIn} name='SignIn' options={({ route }) => ({ headerShown: false }) } />
+    <Stack.Screen component={SignupOrgDetails} name='SignupOrgDetails' options={({ route }) => setScreenOptions(route, 'Sign Up') } />
+    <Stack.Screen component={SignupOrgDocs} name='SignupOrgDocs' options={({ route }) => setScreenOptions(route, 'Sign Up') } />
+    <Stack.Screen component={SignupOrgContact} name='SignupOrgContact' options={({ route }) => setScreenOptions(route, 'Sign Up') } />
   </Stack.Navigator>
 )
 
 const CategoriesTabStack = () => (
   <Stack.Navigator screenOptions={tabsScreensOptions}>
-    <Stack.Screen component={Categories} name='Categories' options={{ title: '' }} />
+    <Stack.Screen component={Categories} name='Categories' options={({ route }) => setScreenOptions(route, 'Categories') } />
   </Stack.Navigator>
 )
 
 const CartTabStack = () => (
   <Stack.Navigator screenOptions={tabsScreensOptions}>
-    <Stack.Screen component={Cart} name='Cart' options={{ title: '' }} />
+    <Stack.Screen component={Cart} name='Cart' options={({ route }) => setScreenOptions(route, 'My Cart') } />
   </Stack.Navigator>
 )
 
-const SupportTabStack = () => (
+const MoreTabStack = () => (
   <Stack.Navigator screenOptions={tabsScreensOptions}>
-    <Stack.Screen component={Support} name='Support' options={{ title: '' }} />
+    <Stack.Screen component={More} name='More' options={({ route }) => setScreenOptions(route, 'Support') } />
   </Stack.Navigator>
 )
 
@@ -96,10 +106,6 @@ const MainTabs = () => (
       name='Home'
       options={{ tabBarIcon: ({ focused }) => (<Icon style={{ color: focused ? Colors.SafaricomGreen : Colors.LightGray }} name='home-outline' type='MaterialCommunityIcons'/>) }} />
     <BottomTabs.Screen
-      component={AccountTabStack}
-      name='Account'
-      options={{ tabBarIcon: ({ focused }) => (<Icon style={{ color: focused ? Colors.SafaricomGreen : Colors.LightGray }} name='account-tie' type='MaterialCommunityIcons'/>) }} />
-    <BottomTabs.Screen
       component={CategoriesTabStack}
       name='Categories'
       options={{ tabBarIcon: ({ focused }) => (<Icon style={{ color: focused ? Colors.SafaricomGreen : Colors.LightGray }} name='apps' type='MaterialCommunityIcons'/>) }} />
@@ -108,9 +114,13 @@ const MainTabs = () => (
       name='Cart'
       options={{ tabBarIcon: ({ focused }) => (<Icon style={{ color: focused ? Colors.SafaricomGreen : Colors.LightGray }} name='cart-outline' type='MaterialCommunityIcons'/>) }} />
     <BottomTabs.Screen
-      component={SupportTabStack}
-      name='Support'
-      options={{ tabBarIcon: ({ focused }) => (<Icon style={{ color: focused ? Colors.SafaricomGreen : Colors.LightGray }} name='face-agent' type='MaterialCommunityIcons'/>) }} />
+      component={AccountTabStack}
+      name='Account'
+      options={{ tabBarIcon: ({ focused }) => (<Icon style={{ color: focused ? Colors.SafaricomGreen : Colors.LightGray }} name='account-tie' type='MaterialCommunityIcons'/>) }} />
+    <BottomTabs.Screen
+      component={MoreTabStack}
+      name='More'
+      options={{ tabBarIcon: ({ focused }) => (<Icon style={{ color: focused ? Colors.SafaricomGreen : Colors.LightGray }} name='dots-horizontal' type='MaterialCommunityIcons'/>) }} />
   </BottomTabs.Navigator>
 )
 
