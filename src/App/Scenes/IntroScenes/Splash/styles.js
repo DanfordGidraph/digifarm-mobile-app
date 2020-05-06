@@ -6,7 +6,7 @@ const { width, height } = Constants
 
 const styles = (props) => StyleSheet.create({
   container: {
-    backgroundColor: Colors.Black,
+    backgroundColor: Colors.White,
     flex: 1,
     justifyContent: 'center',
   },
