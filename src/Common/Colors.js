@@ -1,4 +1,6 @@
 const Colors = {
+  PrimaryGradientStart: '#a2dd5e',
+  PrimaryGradientStop: '#5db258',
   PrimaryBlue: '#115FD6',
   White: '#ffffff',
   Black: '#000000',
@@ -12,7 +14,8 @@ const Colors = {
   Green: 'rgba(55,203,123,1)',
   Magenta: '#e30074',
   DarkBlue: 'rgba(17,107,213,1)',
-  TransBlack: 'rgba(0,0,0,0.3)',
+  TransWhite: 'rgba(255,255,255,0.8)',
+  TransBlack: 'rgba(0,0,0,0.5)',
   DarkOverlay: 'rgba(0,0,0,.8)',
   FacebookBlue: '#1877f2',
   TwitterBlue: '#1da1f2',
