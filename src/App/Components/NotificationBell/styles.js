@@ -6,7 +6,7 @@ const { width, height } = Constants
 
 const styles = (props) => StyleSheet.create({
   icon_bell: {
-    color: Colors.DarkGray,
+    color: Colors.White,
   },
   touchable_notif: {
     alignItems: 'center',
@@ -24,13 +24,13 @@ const styles = (props) => StyleSheet.create({
   view_notif_count: {
     alignItems: 'center',
     backgroundColor: Colors.Red,
-    borderRadius: 10,
+    borderRadius: width * 0.025,
     bottom: width * 0.045,
-    height: width * 0.055,
+    height: width * 0.05,
     justifyContent: 'center',
     position: 'absolute',
     right: width * -0.01,
-    width: width * 0.055,
+    width: width * 0.05,
   },
 })
 
